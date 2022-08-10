@@ -1,0 +1,85 @@
+.myListContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0px 2px 8px rgb(0 0 0 / 15%);
+  width: 100%;
+  max-width: 500px;
+  padding: 0 0px 0 0px;
+  margin: 0 auto;
+}
+
+h1 {
+    background-color: antiquewhite;
+    color: #545862;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 1rem;
+    line-height: 20px;
+    margin: 0;
+    width: 80%;
+    white-space: nowrap;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.list {
+  list-style-type: none;
+  padding-left: 2px;
+  margin: 0px;
+}
+
+.list li {
+ padding: 15px 15px 15px;
+ border-bottom: 1px solid #eeee;
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ gap: 15px;
+ font-family: 'Lato', sans-serif;
+ font-family: 'Open Sans', sans-serif;
+ font-weight: 400;
+ font-size: 15px;
+ color: #3d3d3d;
+}
+
+#toDo {
+  width: 88%;
+  padding: 0 40px 0 1rem;
+  line-height: 50px;
+  height: 50px;
+  border-top: 1px solid #eeee;
+  border-bottom: 1px solid #eeee;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 0;
+  outline: none;
+}
+
+#toDo::placeholder { 
+  font-style: italic;
+  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  color: #adadad;
+}
+
+input[type=checkbox]
+{
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari y Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  border-color: aqua;
+}
+
+#clearAllBtn {
+ width: 100%;
+ border: none;
+ padding: 15px 0px 15px 0px;
+ color: #a9a9a9;
+}

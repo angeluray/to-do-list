@@ -11,6 +11,7 @@ const input = document.createElement('div');
 input.classList.add('input');
 container.appendChild(input);
 container.appendChild(list);
+list.insertAdjacentHTML('afterend', '<button type="button" id="clearAllBtn">Clear all completed</button>');
 
 input.innerHTML = `
 <input type="text" id="toDo" placeholder="Add to your list..." required>
