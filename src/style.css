@@ -133,8 +133,10 @@ input[type=checkbox] {
   border: none;
   padding: 15px 0 15px 0;
   color: #a9a9a9;
+  border-top: 1px solid #eeee;
   cursor: pointer;
   transition: all 0.5s ease;
+
 }
 
 #clearAllBtn:hover {
