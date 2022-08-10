@@ -1,21 +1,52 @@
-import _ from 'lodash';
 import './style.css';
-import Icon from './icon.png';
 
-function component() {
-  const element = document.createElement('div');
+let counter = -1;
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+// HTML Management
+const container = document.querySelector('.myListContainer');
+container.innerHTML = '<h1>Today\'s To-Do\'s</h>';
+const list = document.createElement('ol');
+list.classList.add('list');
+const input = document.createElement('div');
+input.classList.add('input');
+container.appendChild(input);
+container.appendChild(list);
 
-  // Add the image to our existing div.
-  const myIcon = new Image();
-  myIcon.src = Icon;
+input.innerHTML = `
+<input type="text" id="toDo" placeholder="Add to your list..." required>
+`;
 
-  element.appendChild(myIcon);
+const eachList = [];
 
-  return element;
+class NewItemList {
+  constructor(listInfo, mybool, listIndex) {
+    this.listInfo = listInfo;
+    this.myBool = mybool;
+    this.listIndex = listIndex;
+  }
 }
 
-document.body.appendChild(component());
+const printDynamic = (input) => {
+  document.getElementsByClassName('list')[0].innerHTML = input.map((items, index) => `
+  <li id="${index}"><input type="checkbox">${items.listInfo}</li>`).join('');
+};
+
+const addNewList = () => {
+  counter += 1;
+  const toDo = document.getElementById('toDo').value;
+  const eachItemList = new NewItemList(toDo, false, counter);
+  // Push into the array
+  eachList.push(eachItemList);
+
+  // print in the HTML file.
+  printDynamic(eachList);
+  return eachList;
+};
+
+document.getElementById('toDo').addEventListener('keypress', (e) => {
+  const toDo = document.getElementById('toDo').value;
+  if (e.key === 'Enter' && toDo !== '') {
+    addNewList();
+    document.getElementById('toDo').value = '';
+  }
+});
