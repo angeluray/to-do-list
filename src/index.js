@@ -4,7 +4,7 @@ let counter = -1;
 
 // HTML Management
 const container = document.querySelector('.myListContainer');
-container.innerHTML = '<h1>Today\'s To-Do\'s</h>';
+container.innerHTML = '<div class="headlineContainer"><h1>Today\'s To-Do\'s</h1><img src="https://img.icons8.com/ios-glyphs/30/000000/refresh--v1.png" class="myRefresher"></div>';
 const list = document.createElement('ol');
 list.classList.add('list');
 const input = document.createElement('div');
@@ -16,6 +16,11 @@ list.insertAdjacentHTML('afterend', '<button type="button" id="clearAllBtn">Clea
 input.innerHTML = `
 <input type="text" id="toDo" placeholder="Add to your list..." required>
 `;
+
+const refreshIcon = document.createElement('img');
+refreshIcon.classList.add('mySendIcon');
+refreshIcon.src = 'https://img.icons8.com/sf-regular/48/000000/return.png';
+input.appendChild(refreshIcon);
 
 const eachList = [];
 
@@ -29,7 +34,7 @@ class NewItemList {
 
 const printDynamic = (input) => {
   document.getElementsByClassName('list')[0].innerHTML = input.map((items, index) => `
-  <li id="${index}"><input type="checkbox">${items.listInfo}</li>`).join('');
+  <li id="${index}"><div><input type="checkbox">${items.listInfo}</div><img src='https://img.icons8.com/windows/32/000000/menu-2.png' class='myOptionIcon'></li>`).join('');
 };
 
 const addNewList = () => {
